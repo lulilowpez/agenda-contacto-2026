@@ -1,0 +1,14 @@
+<form submit="onSubmit($event)">
+    <h2>Crear Contacto</h2>
+    <label for="name">Introduzca nombre</label>
+    <input required id="name" [formField]="formCreateContact.nombre" type="text" name="name">
+    <label for="surname">Introduzca apellido</label>
+    <input required id="surname" [formField]="formCreateContact.apellido" type="text" name="surname">
+    <label for="phone">Introduzca telefono</label>
+    <input required id="phone" [formField]="formCreateContact.telefono" type="text" name="phone">
+    <label for="email">Introduzca email</label>
+    <input required id="email" [formField]="formCreateContact.email" type="email" name="email">
+    <label for="direction">Introduzca direccion</label>
+    <input required id="direction" [formField]="formCreateContact.direccion" type="text" name="direction">
+    <button type="submit" name="crear contacto">Agregar contacto</button>
+</form>

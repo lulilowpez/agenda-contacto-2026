@@ -1,0 +1,27 @@
+<main>
+    <div>
+    <h1>Mis Contactos</h1>
+    <section class="Search">
+        <input type="text" placeholder="Buscar Contacto" name="search">
+        <button>Buscar</button>
+    </section>
+    <section class="ContactList">
+         @for (contact of contactList; track $index) {    
+            <div>
+                <a [routerLink]="['/contacts', $index]">
+
+                <span>{{contact.imageUrl}}</span>
+                <span>{{contact.name}}</span>
+                <span>{{contact.surname}}</span>
+                <span>{{contact.phone}}</span>
+                <span>{{contact.email}}</span>
+            </a>
+            </div>
+        }
+    
+    </section>
+
+    </div>
+
+    <a class="fab" routerLink="/contacts/create">+</a>
+ </main>

@@ -1,0 +1,30 @@
+/* Selector universal para ajustar box-sizing y eliminar márgenes */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* Altura mínima y comportamiento suave en el html/body */
+html {
+  -webkit-text-size-adjust: 100%;
+  interpolate-size: allow-keywords; /* Permite animar tamaños intrínsecos como auto */
+}
+
+body {
+  min-height: 100svh; /* Altura basada en la ventana gráfica pequeña y moderna */
+  line-height: 1.5;   /* Altura de línea sin unidades para mejor herencia */
+  -webkit-font-smoothing: antialiased; /* Texto más nítido en pantallas Retina */
+}
+
+/* Mejora en elementos multimedia */
+img, picture, video, canvas, svg {
+  display: block;
+  max-width: 100%;
+}
+
+
+/* Heredar fuentes en elementos de formulario */
+input, button, textarea, select {
+  font: inherit;
+}
