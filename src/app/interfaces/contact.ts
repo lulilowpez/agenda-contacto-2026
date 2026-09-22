@@ -3,7 +3,7 @@ export interface Contact {
     imageUrl: string;
     name: string;
     surname: string;
-    phone: string | undefined;
-    email: string | undefined;
-    direction: string | undefined;
+    phone: string ;
+    email: string ;
+    direction: string;
   }

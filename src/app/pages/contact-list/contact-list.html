@@ -1,3 +1,6 @@
+<header>
+  <button>Cerrar sesión</button>
+</header>
 <main>
     <div>
     <h1>Mis Contactos</h1>
@@ -6,9 +9,9 @@
         <button>Buscar</button>
     </section>
     <section class="ContactList">
-         @for (contact of contactList; track $index) {    
+         @for (contact of contactsService.contactList; track $index) {    
             <div>
-                <a [routerLink]="['/contacts', $index]">
+                <a [routerLink]="['/contacts', contact.id]">
 
                 <span>{{contact.imageUrl}}</span>
                 <span>{{contact.name}}</span>
@@ -16,6 +19,11 @@
                 <span>{{contact.phone}}</span>
                 <span>{{contact.email}}</span>
             </a>
+            <div>
+                <a class="button" [routerLink]="['/contacts',contact.id,'edit']">Editar</a>
+                 <button (click)="eliminarContacto(contact.id)">Eliminar</button>
+
+            </div>
             </div>
         }
     

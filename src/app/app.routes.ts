@@ -8,10 +8,6 @@ import { CreateEditContact } from './pages/create-edit-contact/create-edit-conta
 
 export const routes: Routes = [
     {
-        path: '',
-        component: Login
-    },
-    {
         path: 'login',
         component: Login //si ponen en el navegador /login , se mostrará el componente Login
     },
@@ -32,7 +28,7 @@ export const routes: Routes = [
         component: CreateEditContact //cambiamos el orden para que primero entre ahi y no se de cuenta que esta el :id después
     },
      {
-        path:'/contacts/:id',
+        path:'/contacts/:id', //crea una variable con id; vincula el valor de la variable y la ruta
         component: ContactDetails
     },
        {
@@ -43,6 +39,6 @@ export const routes: Routes = [
     {
         path: "", 
         redirectTo: "contacts",//esto es para que cuando el usuario ingrese a la ruta vacía, sea redirigido a la ruta de login
-       
+        pathMatch: "full"
     }
 ];
