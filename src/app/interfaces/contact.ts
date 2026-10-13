@@ -1,9 +1,10 @@
 export interface Contact {
-    id: string;
-    imageUrl: string;
+    id: number;
+    imageUrl?: string;
     name: string;
     surname: string;
     phone: string ;
     email: string ;
-    direction: string;
+    address: string;
+    IsFavorite: boolean
   }

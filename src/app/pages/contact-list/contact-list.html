@@ -1,5 +1,6 @@
 <header>
-  <button>Cerrar sesión</button>
+  <button (click)="authService.logout()">Cerrar sesión</button>
+
 </header>
 <main>
     <div>
@@ -9,13 +10,12 @@
         <button>Buscar</button>
     </section>
     <section class="ContactList">
-         @for (contact of contactsService.contactList; track $index) {    
+         @for (contact of contactsService.contactList(); track $index) {    
             <div>
                 <a [routerLink]="['/contacts', contact.id]">
 
                 <span>{{contact.imageUrl}}</span>
-                <span>{{contact.name}}</span>
-                <span>{{contact.surname}}</span>
+                <span>{{contact.name}} {{contact.surname}}</span>
                 <span>{{contact.phone}}</span>
                 <span>{{contact.email}}</span>
             </a>

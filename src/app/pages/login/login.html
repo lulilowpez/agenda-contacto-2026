@@ -1,14 +1,20 @@
-<form>
-        <h2>Bienvenido a Agenda de Contacto 2026</h2>
+<section>
+<div>
+  
+    <h2>Bienvenido a Agenda de Contacto 2026</h2>
+    <h3>Inicie sesión para continuar</h3>
+    <form (submit)="login($event)">
+        <div>
+    <label for="email">Introduzca Email</label>
+    <input  type="email" id="" [formField]="formLogin.email">
 
-        <label for="user">Introduzca usuario</label>
-        <input required id="user" type="text" name="user">
+    <label for="contrasenia">Introduzca contraseña</label>
+    <input id="contrasenia" type="password" [formField]="formLogin.password" />
+></div>
+    <button [disabled]="formLogin().invalid()">Iniciar sesión</button>
 
-        <label for="contrasenia">Introduzca contraseña</label>
-        <input required id="contrasenia" type="password" name="pass">
-
-        <input type="submit" name="ingresar" value="Ingresar">
-
-        <a routerLink="/forgotpassword">¿Olvidaste tu contraseña?</a>
-        <a routerLink="/register">Registrarse</a>
-</form>
+    <a routerLink="/forgotpassword">¿Olvidaste tu contraseña?</a>
+    <a routerLink="/register">Registrarse</a>
+  </form>
+  </div>
+</section>

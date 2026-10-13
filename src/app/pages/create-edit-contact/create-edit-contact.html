@@ -1,6 +1,6 @@
 <header>
   <h1>Mis contactos</h1>
-  <button>Cerrar sesión</button>
+  <button (click)="authService.logout()">Cerrar sesión</button>
 </header>
 <main>
     <form submit="onSubmit($event)">
@@ -13,8 +13,8 @@
         <input  [formField]="formCreateContact.phone" type="text"  id="phone">
         <label for="email">Introduzca email</label>
         <input  id="email" [formField]="formCreateContact.email" type="text" >
-        <label for="direction">Introduzca direccion</label>
-        <input  id="direction" [formField]="formCreateContact.direction" type="text">
+        <label for="address">Introduzca direccion</label>
+        <input  id="address" [formField]="formCreateContact.address" type="text">
         <button>{{id() ? 'Editar contacto' : 'Agregar contacto'}}</button>
     </form>
 </main>
