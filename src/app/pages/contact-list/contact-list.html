@@ -1,35 +1,30 @@
 <header>
   <button (click)="authService.logout()">Cerrar sesión</button>
-
 </header>
 <main>
-    <div>
+  <div>
     <h1>Mis Contactos</h1>
     <section class="Search">
-        <input type="text" placeholder="Buscar Contacto" name="search">
-        <button>Buscar</button>
+      <input type="text" placeholder="Buscar Contacto" name="search" />
+      <button>Buscar</button>
     </section>
     <section class="ContactList">
-         @for (contact of contactsService.contactList(); track $index) {    
-            <div>
-                <a [routerLink]="['/contacts', contact.id]">
-
-                <span>{{contact.imageUrl}}</span>
-                <span>{{contact.name}} {{contact.surname}}</span>
-                <span>{{contact.phone}}</span>
-                <span>{{contact.email}}</span>
-            </a>
-            <div>
-                <a class="button" [routerLink]="['/contacts',contact.id,'edit']">Editar</a>
-                 <button (click)="eliminarContacto(contact.id)">Eliminar</button>
-
-            </div>
-            </div>
-        }
-    
+      @for (contact of contactsService.contactList(); track $index) {
+        <div>
+          <a [routerLink]="['/contacts', contact.id]">
+            <span>{{ contact.imageUrl }}</span>
+            <span>{{ contact.name }} {{ contact.surname }}</span>
+            <span>{{ contact.phone }}</span>
+            <span>{{ contact.email }}</span>
+          </a>
+          <div>
+            <a class="button" [routerLink]="['/contacts', contact.id, 'edit']">Editar</a>
+            <button (click)="eliminarContacto(contact.id)">Eliminar</button>
+          </div>
+        </div>
+      }
     </section>
+  </div>
 
-    </div>
-
-    <a class="fab" routerLink="/contacts/create">+</a>
- </main>
+  <a class="fab" routerLink="/contacts/create">+</a>
+</main>

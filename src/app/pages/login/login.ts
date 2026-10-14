@@ -14,7 +14,7 @@ export class Login {
   router = inject(Router);
   loginModel = signal<LoginForm>({
     email: '',
-    password: ''
+    password: '',
   });
   formLogin = form(this.loginModel, (schemaPath) => {
     required(schemaPath.email);
@@ -25,11 +25,11 @@ export class Login {
   async login(event: Event) {
     event.preventDefault();
 
-  const result = await this.authService.login(this.loginModel());
-  if (result) {
-    this.router.navigate(["/"])
-  } else {
-    console.log('Login failed')
+    const result = await this.authService.login(this.loginModel());
+    if (result) {
+      this.router.navigate(['/']);
+    } else {
+      console.log('Login failed');
+    }
   }
-}
 }
