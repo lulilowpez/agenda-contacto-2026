@@ -24,11 +24,13 @@ export class Auth {
     this.token = token;
     return true;
   }
-  register() { }
+
 
   logout() {
     this.token = '';
     localStorage.clear();
     this.router.navigate(['/login']);
   }
+  register() { }
+
 }
