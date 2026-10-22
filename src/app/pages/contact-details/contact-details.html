@@ -1,7 +1,11 @@
 <header>
   <div>
     <a class="button" routerLink="/contacts">⬅</a>
-    <h1>{{ contacto?.name }}</h1>
+    <div>
+      <img [src]="contacto()?.imageUrl" alt="Foto del contacto" />
+    </div>
+    <h1>{{ contacto()?.name }}</h1>
+    <h1>{{ contacto()?.surname }}</h1>
   </div>
   <button>Cerrar sesión</button>
 </header>
@@ -9,20 +13,20 @@
   <h1>Detalles del Contacto</h1>
   <div>
     <p>Telefono</p>
-    <p>{{ contacto?.phone }}</p>
+    <p>{{ contacto()?.phone }}</p>
   </div>
   <div>
     <p>Email</p>
-    <p>{{ contacto?.email }}</p>
+    <p>{{ contacto()?.email }}</p>
   </div>
   <div>
     <p>Dirección</p>
-    <p>{{ contacto?.address }}</p>
+    <p>{{ contacto()?.address }}</p>
   </div>
-  @if (contacto) {
+  @if (contacto()) {
     <div>
-      <a class="button" [routerLink]="['/contacts', contacto.id, 'edit']">Editar</a>
-      <button (click)="eliminarContacto(contacto.id)">Eliminar</button>
+      <a class="button" [routerLink]="['/contacts', contacto()?.id, 'edit']">Editar</a>
+      <button (click)="eliminarContacto(contacto()!.id)">Eliminar</button>
     </div>
   }
 </main>

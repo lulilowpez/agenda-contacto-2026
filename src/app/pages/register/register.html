@@ -1,15 +1,29 @@
-<form>
+<form (submit)="register($event)">
   <h2>Registrese en Agenda de Contacto 2026</h2>
+  <label for="img">Subir imagen</label>
+  <input id="" type="file" name="img" [formField]="formRegister.image" />
+
   <label for="nombre">Introduzca nombre</label>
-  <input required id="nombre" type="text" name="nombre" />
+  <input [formField]="formRegister.name" id="" [formField]type="text" name="nombre" />
+
   <label for="apellido">Introduzca apellido</label>
-  <input required id="apellido" type="text" name="apellido" />
-  <label for="user">Introduzca usuario</label>
-  <input required id="user" type="text" name="user" />
+  <input [formField]="formRegister.surname" id="" type="text" name="apellido" />
+
+  <label for="phone">Introduzca teléfono</label>
+  <input [formField]="formRegister.phone" id="" type="text" name="phone" />
+
+  <label for="email">Introduzca email</label>
+  <input [formField]="formRegister.email" id="" type="email" name="email" />
   <label for="contrasenia">Introduzca contraseña</label>
-  <input required id="contrasenia" type="password" name="pass" />
 
-  <input type="submit" name="registrarme" value="registrarme" />
+  <input [formField]="formRegister.password" id="" type="password" name="pass" />
+  <label for="confirmar contrasenia">Confirme contraseña</label>
 
-  <a href="#">Ingresar</a>
+  <input [formField]="formRegister.confirmPassword" id="" type="password" />
+  @if (formRegister.confirmPassword().invalid()) {
+    <p>Las contraseñaes no coinciden</p>
+  }
+
+  <button [disabled]="formRegister().invalid()">Registrarse</button>
+  <p>¿Ya tenés cuenta? <a routerLink="/login">Iniciar sesión</a></p>
 </form>

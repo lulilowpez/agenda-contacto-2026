@@ -1,4 +1,4 @@
-import { Component, inject, input, OnInit } from '@angular/core';
+import { Component, inject, input, OnInit, signal } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { Contact } from '../../interfaces/contact';
 import { Router } from '@angular/router';
@@ -13,13 +13,14 @@ import { ContactsService } from '../../services/contactsService';
 })
 export class ContactDetails implements OnInit {
   id = input.required<number>();
-  contacto: Contact | undefined;
+  contacto = signal<Contact | undefined>(undefined);
   contactsService = inject(ContactsService);
   router = inject(Router);
 
-  ngOnInit(): void {
-    //this.contacto = this.contactsService.getContactById(this.id())
+  async ngOnInit() {
+    this.contacto.set(await this.contactsService.getContactById(this.id()))
   }
+
   eliminarContacto(id: number) {
     this.contactsService.deleteContact(id);
     Swal.mixin({

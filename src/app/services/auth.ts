@@ -1,6 +1,7 @@
 import { inject, Service } from '@angular/core';
 import { Router } from '@angular/router';
 import { LoginForm } from '../interfaces/login';
+import { RegisterForm } from '../interfaces/register';
 
 @Service()
 export class Auth {
@@ -31,6 +32,22 @@ export class Auth {
     localStorage.clear();
     this.router.navigate(['/login']);
   }
-  register() { }
-
+  async register(registerData: RegisterForm): Promise<boolean> {
+    const res = await fetch("http://localhost:5000/api/users", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        email: registerData.email,
+        password: registerData.password,
+        name: registerData.name,
+        surname: registerData.surname,
+        phone: registerData.phone,
+        img: registerData.img,
+        address: registerData.address
+      })
+    })
+    return res.ok
+  }
 }
